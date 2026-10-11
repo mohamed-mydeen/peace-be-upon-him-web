@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Peace Be Upon Him – Islamic App for Android | Quran, Hadith, Dua &amp; Dhikr</title>
+  <meta name="description" content="Peace Be Upon Him is an Android app with the Quran in Arabic and Tamil, Hadith, daily Duas, Dhikr, prayer times and more in one place.">
+  <meta name="theme-color" content="#0b3d2e">
+
+  <!-- Canonical URL: add once the final website address is known, e.g.
+  <link rel="canonical" href="https://your-domain.example/"> -->
+
+  <!-- Open Graph / social sharing. If you set a final domain, change og:image to an absolute URL. -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Peace Be Upon Him – Your Islamic Companion">
+  <meta property="og:description" content="Quran, Hadith, daily Duas, Dhikr and useful Islamic resources in one Android app.">
+  <meta property="og:image" content="assets/og-image.png">
+  <meta property="og:image:alt" content="Peace Be Upon Him app logo: gold Arabic calligraphy on an emerald green badge">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Peace Be Upon Him – Your Islamic Companion">
+  <meta name="twitter:description" content="Quran, Hadith, daily Duas, Dhikr and useful Islamic resources in one Android app.">
+  <meta name="twitter:image" content="assets/og-image.png">
+
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Icon sprite (inline so the page works from file:// without extra requests) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 6.5C10.5 5.2 8.2 4.5 4.5 4.5v13c3.7 0 6 .7 7.5 2 1.5-1.3 3.8-2 7.5-2v-13c-3.700 0-6 .7-7.500 2zM12 6.500v13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+      <symbol id="i-scroll" viewBox="0 0 24 24"><path d="M8 4.500h9.500a2 2 0 0 1 2 2V17a2.500 2.500 0 0 1-2.500 2.500H7.500A2.500 2.500 0 0 1 5 17V7.500A3 3 0 0 1 8 4.500zM9 9h7M9 12.500h7M9 16h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-hands" viewBox="0 0 24 24"><path d="M12 20.500c-4.500-2-7-5-7-8.500 0-1.500.500-2.500 1.500-3.500C8 7 9.800 6.200 12 4c2.200 2.200 4 3 5.500 4.500 1 1 1.500 2 1.500 3.500 0 3.500-2.500 6.500-7 8.500zM12 10v6.500" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-beads" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="4.500" r="1.800"/><circle cx="17.800" cy="8" r="1.800"/><circle cx="18" cy="14.500" r="1.800"/><circle cx="12" cy="18.500" r="1.800"/><circle cx="6" cy="14.500" r="1.800"/><circle cx="6.200" cy="8" r="1.800"/></g></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.500"/><path d="M12 7v5l3.500 2"/></g></symbol>
+      <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.200 3.800L18.500 5.500l-1.300 4.300L21 12l-3.800 2.200 1.300 4.300-4.300-1.300L12 21l-2.200-3.800-4.300 1.300 1.300-4.300L3 12l3.800-2.200-1.300-4.300 4.300 1.300z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.500-5.700-6.500-11a6.500 6.500 0 0 1 13 0c0 5.300-6.500 11-6.500 11z"/><circle cx="12" cy="10" r="2.300"/></g></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.500" y="5.500" width="17" height="13" rx="3.500"/><path d="M10.500 9.500v5l4-2.500z"/></g></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M19.500 14.500A8 8 0 0 1 9.500 4.500a8 8 0 1 0 10 10z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7.500 11l4.500 4.500 4.500-4.500M5 19.500h14"/></g></symbol>
+      <symbol id="i-android" viewBox="0 0 24 24"><g fill="currentColor"><path d="M6.500 9.500h11v8a1.500 1.500 0 0 1-1.500 1.500h-1v2.500a1 1 0 0 1-2 0V19h-2v2.500a1 1 0 0 1-2 0V19H8a1.500 1.500 0 0 1-1.500-1.500z"/><path d="M4 10a1 1 0 0 1 2 0v5a1 1 0 0 1-2 0zM18 10a1 1 0 0 1 2 0v5a1 1 0 0 1-2 0z"/><path d="M6.700 8.500a5.300 5.300 0 0 1 10.600 0zM9.200 5.300 8 3.500M14.800 5.300 16 3.500" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></g></symbol>
+      <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 2.500a9.500 9.500 0 0 0-3 18.500c.5.100.7-.2.700-.5v-1.700c-2.700.6-3.300-1.300-3.300-1.300-.4-1.100-1.100-1.400-1.100-1.400-.9-.6.100-.6.100-.6 1 .1 1.500 1 1.500 1 .9 1.500 2.300 1.100 2.900.8.100-.7.400-1.100.6-1.400-2.100-.2-4.400-1.100-4.400-4.700 0-1 .4-1.900 1-2.600-.1-.2-.4-1.200.1-2.500 0 0 .8-.3 2.700 1a9.200 9.200 0 0 1 4.900 0c1.900-1.300 2.700-1 2.700-1 .5 1.300.2 2.300.1 2.500.6.700 1 1.600 1 2.600 0 3.600-2.200 4.400-4.300 4.700.3.300.6.900.6 1.800V20.500c0 .3.200.6.700.5A9.500 9.500 0 0 0 12 2.500z" fill="currentColor"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.500" y="5.500" width="17" height="13" rx="2.500"/><path d="M4.500 7.500l7.500 6 7.500-6"/></g></symbol>
+      <symbol id="i-youtube" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.500" width="18" height="13" rx="4"/><path d="M10.500 9.500v5l4.200-2.500z"/></g></symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="4.500"/><circle cx="12" cy="12" r="3.600"/><circle cx="16.800" cy="7.200" r=".6" fill="currentColor"/></g></symbol>
+    </defs>
+  </svg>
+
+  <!-- A. Navigation -->
+  <header class="site-header" id="top">
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <div class="wrap nav-bar">
+      <a class="brand" href="#home" aria-label="Peace Be Upon Him – home">
+        <img src="assets/logo-320.webp" width="44" height="44" alt="" decoding="async">
+        <span>Peace Be Upon Him</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span class="bars" aria-hidden="true"></span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#preview">App Preview</a></li>
+          <li><a href="#download">Download</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- B. Hero -->
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="hero-salaam" lang="ar" dir="rtl">السلام عليكم</p>
+          <h1 id="hero-title">Your Islamic Companion, Anytime, Anywhere.</h1>
+          <p class="lead">Explore Quran reading, Hadith, daily Duas, Dhikr, and useful Islamic resources in one convenient application.</p>
+          <div class="cta-row">
+            <a class="btn btn-gold" href="https://github.com/uwais12345/PeaceBeUponHim_APK/releases/latest/download/Peacebeuponhim.apk" rel="noopener">
+              <svg class="ico" aria-hidden="true"><use href="#i-android"/></svg>
+              Download for Android
+            </a>
+            <a class="btn btn-ghost" href="#features">Explore Features</a>
+          </div>
+          <p class="hero-note">Version 1.0.1 · APK file, installed outside the Play Store</p>
+        </div>
+
+        <div class="hero-art">
+          <div class="medallion">
+            <div class="medallion-rays" aria-hidden="true"></div>
+            <img src="assets/logo.webp" width="640" height="640" alt="Peace Be Upon Him logo: the name Muhammad in gold Arabic calligraphy over a green mosque skyline" decoding="async" fetchpriority="high">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- C. About -->
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="wrap about-grid">
+        <div>
+          <h2 id="about-title">One place for everyday Islamic resources</h2>
+        </div>
+        <div class="prose">
+          <p>Peace Be Upon Him is an Islamic companion application designed to help you reach useful Islamic resources in one convenient place. Read the Quran, browse Hadith, recite daily Duas, count your Dhikr and check prayer times, all from your Android phone.</p>
+          <p>The app is presented in English with Tamil-language content, including a Tamil translation of the Quran. It is a reading and reminder tool. For questions of religious ruling, please consult qualified scholars.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- D. Features -->
+    <section class="section features" id="features" aria-labelledby="features-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="features-title">What you can do in the app</h2>
+          <p>Every feature listed here is part of the app today.</p>
+        </div>
+
+        <div class="bento">
+          <article class="card card-quran">
+            <svg class="card-ico" aria-hidden="true"><use href="#i-book"/></svg>
+            <h3>The Quran</h3>
+            <p>Read the Quran in Arabic with a Tamil translation, in a clean, distraction-free reader.</p>
+            <p class="ayah" lang="ar" dir="rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
+          </article>
+
+          <article class="card">
+            <svg class="card-ico" aria-hidden="true"><use href="#i-scroll"/></svg>
+            <h3>Hadith</h3>
+            <p>Browse Hadith collections by book and category, or search for a topic.</p>
+          </article>
+
+          <article class="card">
+            <svg class="card-ico" aria-hidden="true"><use href="#i-hands"/></svg>
+            <h3>Dua</h3>
+            <p>A library of daily supplications to open whenever you need them.</p>
+          </article>
+
+          <article class="card">
+            <svg class="card-ico" aria-hidden="true"><use href="#i-beads"/></svg>
+            <h3>Dhikr</h3>
+            <p>Remembrances to recite, with a counter to keep track.</p>
+          </article>
+
+          <article class="card">
+            <svg class="card-ico" aria-hidden="true"><use href="#i-moon"/></svg>
+            <h3>After Salah</h3>
+            <p>The invocations recited after prayer, gathered on one page.</p>
+          </article>
+
+          <article class="card">
+            <svg class="card-ico" aria-hidden="true"><use href="#i-clock"/></svg>
+            <h3>Prayer Times</h3>
+            <p>Daily Salah times, with the next prayer easy to spot.</p>
+          </article>
+
+          <article class="card">
+            <svg class="card-ico" aria-hidden="true"><use href="#i-star"/></svg>
+            <h3>Names of Allah</h3>
+            <p>The 99 Names of Allah, presented with their meanings.</p>
+          </article>
+
+          <article class="card card-masjid">
+            <svg class="card-ico" aria-hidden="true"><use href="#i-pin"/></svg>
+            <h3>Nearby Masjids</h3>
+            <p>Discover mosques close to you.</p>
+          </article>
+
+          <article class="card card-wide">
+            <svg class="card-ico" aria-hidden="true"><use href="#i-play"/></svg>
+            <h3>Islamic Lessons &amp; Library</h3>
+            <p>Watch educational lessons and lectures from the Peace Be Upon Him YouTube channel, and find your saved items in My Library.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- E. App Preview -->
+    <section class="section preview" id="preview" aria-labelledby="preview-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="preview-title">App preview</h2>
+          <p>Screens from the app: Home, Quran, Hadith and Dua.</p>
+        </div>
+
+        <ul class="phones" role="list" tabindex="0" aria-label="App screenshots">
+          <li class="phone">
+            <div class="phone-screen"><img src="assets/screenshots/home.webp" width="722" height="1600" alt="Home screen of the Peace Be Upon Him app, showing daily prayer times and feature shortcuts" loading="lazy" decoding="async"></div>
+            <p>Home</p>
+          </li>
+          <li class="phone">
+            <div class="phone-screen"><img src="assets/screenshots/quran.webp" width="722" height="1600" alt="Quran screen of the Peace Be Upon Him app, listing the 114 surahs with Arabic and Tamil names" loading="lazy" decoding="async"></div>
+            <p>Quran</p>
+          </li>
+          <li class="phone">
+            <div class="phone-screen"><img src="assets/screenshots/hadith.webp" width="722" height="1600" alt="Hadith collections screen showing Sahih al-Bukhari and Sahih Muslim" loading="lazy" decoding="async"></div>
+            <p>Hadith</p>
+          </li>
+          <li class="phone">
+            <div class="phone-screen"><img src="assets/screenshots/dua.webp" width="722" height="1600" alt="Dua Library screen with category filters and a morning remembrance in Arabic" loading="lazy" decoding="async"></div>
+            <p>Dua</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- F. Download -->
+    <section class="section download" id="download" aria-labelledby="download-title">
+      <div class="wrap download-grid">
+        <div class="download-id">
+          <img src="assets/logo-320.webp" width="160" height="160" alt="Peace Be Upon Him app logo" loading="lazy" decoding="async">
+          <div>
+            <h2 id="download-title">Download Peace Be Upon Him</h2>
+            <p class="version">Android · Version 1.0.1</p>
+          </div>
+        </div>
+
+        <div class="download-actions">
+          <a class="btn btn-gold btn-lg" href="https://github.com/uwais12345/PeaceBeUponHim_APK/releases/latest/download/Peacebeuponhim.apk" rel="noopener">
+            <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg>
+            Download APK
+          </a>
+        </div>
+
+        <div class="install">
+          <h3>Installing the app</h3>
+          <ol>
+            <li>Tap <strong>Download APK</strong> and wait for the file to finish downloading.</li>
+            <li>Open the downloaded file from your notifications or Downloads folder.</li>
+            <li>Android may ask you to confirm that you want to install an app from outside the Play Store. Read the prompt, and continue only if you want to install this app.</li>
+            <li>Open <strong>Peace Be Upon Him</strong> from your app list.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- G. Privacy -->
+    <section class="section privacy" id="privacy" aria-labelledby="privacy-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="privacy-title">Privacy</h2>
+          <p>A plain summary of how the app handles your information.</p>
+        </div>
+
+        <!-- EDIT HERE: this text follows the privacy statement written in the app's About page.
+             Confirm it is still accurate before publishing, and update the list below if the app changes. -->
+        <ul class="privacy-list">
+          <li><strong>No account needed.</strong> The core features work without signing up.</li>
+          <li><strong>No personal data collected.</strong> The app's own privacy statement says it does not collect personal data.</li>
+          <li><strong>Stored on your device.</strong> Bookmarks, reading history and theme preferences are saved locally on your phone.</li>
+          <li><strong>Location is optional.</strong> Nearby Masjids asks for permission to use your device location.</li>
+          <li><strong>Third-party content.</strong> Some content, such as Quran text and map data, is loaded from outside services, which have their own practices.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- H. Contact -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap contact-grid">
+        <div>
+          <h2 id="contact-title">Support &amp; feedback</h2>
+          <p>Found a problem or have a suggestion? Reach out through the channels below.</p>
+        </div>
+        <ul class="contact-list" role="list">
+          <li>
+            <a href="https://www.youtube.com/@peace_be_upon_him" target="_blank" rel="noopener noreferrer">
+              <svg class="ico" aria-hidden="true"><use href="#i-youtube"/></svg>
+              <span>YouTube<small>@peace_be_upon_him</small></span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/peace_be_upon_him__" target="_blank" rel="noopener noreferrer">
+              <svg class="ico" aria-hidden="true"><use href="#i-instagram"/></svg>
+              <span>Instagram<small>@peace_be_upon_him__</small></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- I. Footer -->
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#home" aria-label="Peace Be Upon Him – back to top">
+          <img src="assets/logo-320.webp" width="44" height="44" alt="" loading="lazy" decoding="async">
+          <span>Peace Be Upon Him</span>
+        </a>
+        <p>An Islamic companion app for Android: Quran, Hadith, Dua, Dhikr and more.</p>
+      </div>
+      <nav aria-label="Footer">
+        <ul class="footer-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#preview">App Preview</a></li>
+          <li><a href="#download">Download</a></li>
+          <li><a href="#privacy">Privacy</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="wrap footer-base">
+      <p>&copy; <span id="year">2026</span> Peace Be Upon Him. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
