@@ -239,9 +239,7 @@ h3 { font-size: 1.4rem; }
   color: var(--ivory);
   background:
     radial-gradient(60% 70% at 78% 45%, rgba(15, 92, 69, .85), transparent 70%),
-    var(--pattern),
     var(--emerald-800);
-  background-size: auto, 88px 88px, auto;
   padding-block: clamp(48px, 8vw, 104px);
 }
 .hero-grid {
@@ -272,9 +270,11 @@ h3 { font-size: 1.4rem; }
 }
 .cta-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
 .hero-note { margin-top: 18px; font-size: .92rem; color: rgba(251, 248, 241, .72); }
+.hero-release-link { color: var(--gold-300); text-decoration: underline; text-underline-offset: 3px; transition: color .2s ease; }
+.hero-release-link:hover { color: #fff; }
 
-/* Medallion: the logo sits inside an eight-pointed star built from two squares */
-.hero-art { display: flex; justify-content: center; }
+/* Medallion */
+.hero-art { display: flex; justify-content: center; align-items: center; }
 .medallion {
   position: relative;
   width: min(100%, 460px);
@@ -282,24 +282,9 @@ h3 { font-size: 1.4rem; }
   display: grid;
   place-items: center;
 }
-.medallion::before,
-.medallion::after {
-  content: "";
-  position: absolute;
-  inset: 15%;
-  border: 1.5px solid rgba(230, 200, 119, .7);
-}
-.medallion::after { transform: rotate(45deg); }
-.medallion-rays {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  border: 1px dashed rgba(230, 200, 119, .45);
-  background: radial-gradient(circle, rgba(230, 200, 119, .22), transparent 64%);
-}
 .medallion img {
   position: relative;
-  width: 64%;
+  width: min(88%, 380px);
   height: auto;
   filter: drop-shadow(0 18px 34px rgba(0, 0, 0, .45));
 }
@@ -623,14 +608,8 @@ h3 { font-size: 1.4rem; }
   @keyframes reveal-left { from { opacity: 0; transform: translateX(-28px); } }
   @keyframes reveal-pop  { from { opacity: 0; transform: scale(.92) translateY(18px); } }
 
-  /* Hero medallion: the two squares of the star turn slowly in opposite directions */
-  .medallion::before { animation: spin 80s linear infinite; }
-  .medallion::after  { animation: spin-back 80s linear infinite; }
-  .medallion-rays    { animation: spin 140s linear infinite reverse; }
-  .medallion img     { animation: float 7s ease-in-out infinite; }
-  @keyframes spin      { to { transform: rotate(360deg); } }
-  @keyframes spin-back { from { transform: rotate(45deg); } to { transform: rotate(-315deg); } }
-  @keyframes float     { 50% { transform: translateY(-10px); } }
+  .medallion img { animation: float 7s ease-in-out infinite; }
+  @keyframes float { 50% { transform: translateY(-10px); } }
 
   /* Buttons: a soft light sweep on hover, and a gentle pulse on the main download button */
   .btn { position: relative; overflow: hidden; }

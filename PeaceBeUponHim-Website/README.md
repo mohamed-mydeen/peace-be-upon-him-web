@@ -48,8 +48,8 @@ https://github.com/uwais12345/PeaceBeUponHim_APK/releases/latest/download/Peaceb
 
 - It keeps working for future releases **as long as each release uploads an asset named exactly `Peacebeuponhim.apk`**.
 - To change it, search `index.html` for `Peacebeuponhim.apk` (two buttons: hero and Download section).
-- When you publish a new version, update the visible version text (`1.0.1`, in the hero note and Download section)
-  and the release-page link `…/releases/tag/v1.0.1`.
+- When you publish a new version, update the visible version text (`1.0.2`, in the hero note and Download section)
+  and the release-page link `…/releases/tag/v1.0.2`.
 - Do not copy the APK into this repository.
 
 ## 4. Things to confirm before publishing
