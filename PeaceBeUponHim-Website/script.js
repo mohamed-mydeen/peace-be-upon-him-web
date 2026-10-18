@@ -95,7 +95,7 @@
       [".about-grid > *", "from-left"],
       [".section-head", ""],
       [".card", "pop"],
-      [".phone", "pop"],
+      [".preview-marquee", "pop"],
       [".download-id", "from-left"],
       [".download-actions", ""],
       [".install", ""],
@@ -134,6 +134,105 @@
     window.setTimeout(function () {
       targets.forEach(function (el) { el.classList.add("is-in"); });
     }, 6000);
+  }
+
+  /* ---- App Preview Infinite Marquee & Scroll Interaction ---- */
+  var marquee = document.getElementById("preview-marquee");
+  var track = document.getElementById("preview-track");
+  var group = track ? track.querySelector(".phones-group") : null;
+
+  if (marquee && track && group) {
+    var posX = 0;
+    var baseSpeed = 0.85; // Auto drift in pixels per frame
+    var isHovered = false;
+    var isDragging = false;
+    var lastTouchX = 0;
+    var isPreviewVisible = false;
+    var lastScrollY = window.scrollY || window.pageYOffset || 0;
+
+    // Observe when preview is near viewport so we only run animation when relevant
+    if ("IntersectionObserver" in window) {
+      var previewObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          isPreviewVisible = entry.isIntersecting;
+        });
+      }, { rootMargin: "250px 0px 250px 0px" });
+      previewObs.observe(marquee);
+    } else {
+      isPreviewVisible = true;
+    }
+
+    // Scroll linkage: as user scrolls down/up, advance marquee dynamically
+    window.addEventListener("scroll", function () {
+      var currentScrollY = window.scrollY || window.pageYOffset || 0;
+      var diffY = currentScrollY - lastScrollY;
+      lastScrollY = currentScrollY;
+      if (isPreviewVisible) {
+        posX -= diffY * 0.45;
+      }
+    }, { passive: true });
+
+    // Pause auto-movement on hover
+    marquee.addEventListener("mouseenter", function () { isHovered = true; });
+    marquee.addEventListener("mouseleave", function () {
+      isHovered = false;
+      isDragging = false;
+    });
+
+    // Touch / swipe / mouse drag support
+    function startDrag(clientX) {
+      isDragging = true;
+      lastTouchX = clientX;
+    }
+    function moveDrag(clientX) {
+      if (!isDragging) return;
+      var delta = clientX - lastTouchX;
+      lastTouchX = clientX;
+      posX += delta;
+    }
+    function endDrag() {
+      isDragging = false;
+    }
+
+    marquee.addEventListener("touchstart", function (e) {
+      if (e.touches && e.touches[0]) startDrag(e.touches[0].clientX);
+    }, { passive: true });
+    marquee.addEventListener("touchmove", function (e) {
+      if (e.touches && e.touches[0]) moveDrag(e.touches[0].clientX);
+    }, { passive: true });
+    marquee.addEventListener("touchend", endDrag);
+    marquee.addEventListener("touchcancel", endDrag);
+
+    marquee.addEventListener("mousedown", function (e) {
+      startDrag(e.clientX);
+    });
+    window.addEventListener("mousemove", function (e) {
+      if (isDragging) moveDrag(e.clientX);
+    });
+    window.addEventListener("mouseup", function () {
+      if (isDragging) endDrag();
+    });
+
+    // Smooth animation tick
+    function marqueeTick() {
+      if (isPreviewVisible) {
+        if (!isHovered && !isDragging) {
+          posX -= baseSpeed;
+        }
+        var gap = window.innerWidth <= 680 ? 16 : 28;
+        var groupWidth = group.offsetWidth + gap;
+        if (groupWidth > 0) {
+          if (posX <= -groupWidth) {
+            posX += groupWidth;
+          } else if (posX > 0) {
+            posX -= groupWidth;
+          }
+          track.style.transform = "translate3d(" + posX.toFixed(2) + "px, 0, 0)";
+        }
+      }
+      window.requestAnimationFrame(marqueeTick);
+    }
+    window.requestAnimationFrame(marqueeTick);
   }
 
   /* ---- Footer year ---- */
