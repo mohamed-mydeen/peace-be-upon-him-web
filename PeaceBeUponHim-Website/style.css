@@ -332,6 +332,8 @@ h3 { font-size: 1.4rem; }
   gap: 16px;
 }
 .card {
+  position: relative;
+  overflow: hidden;
   background: var(--paper);
   border: 1px solid var(--line);
   border-radius: 16px;
@@ -339,18 +341,44 @@ h3 { font-size: 1.4rem; }
   box-shadow: 0 2px 8px rgba(11, 61, 46, .04);
   display: flex;
   flex-direction: column;
-  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+  transition: transform .3s var(--ease), border-color .25s ease, box-shadow .3s ease;
+  will-change: transform, box-shadow;
+}
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold-500), var(--gold-300));
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform .35s var(--ease), opacity .25s ease;
+}
+.card:hover::before {
+  opacity: 1;
+  transform: scaleX(1);
 }
 .card:hover {
   border-color: var(--gold-500);
-  box-shadow: 0 8px 24px rgba(11, 61, 46, .08);
-  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(11, 61, 46, .1), 0 2px 8px rgba(201, 162, 75, .08);
+  transform: translateY(-5px);
+}
+.card:active {
+  transform: scale(0.98) translateY(-2px);
+  transition: transform .1s ease;
 }
 .card h3 {
   font-size: 1.15rem;
   margin-top: 12px;
   font-weight: 700;
   line-height: 1.25;
+  transition: color .25s ease;
+}
+.card:hover h3 {
+  color: var(--emerald-700);
 }
 .card p {
   margin-top: 6px;
@@ -366,8 +394,16 @@ h3 { font-size: 1.4rem; }
   color: var(--gold-700);
   background: #f6edd2;
   flex-shrink: 0;
+  transition: transform .4s var(--ease), background-color .3s ease, box-shadow .3s ease, color .3s ease;
+}
+.card:hover .card-ico {
+  transform: rotate(-8deg) scale(1.14);
+  background: #f4e5be;
+  color: var(--emerald-800);
+  box-shadow: 0 4px 14px rgba(201, 162, 75, .3);
 }
 
+.card-quran::before { display: none; }
 .card-quran {
   grid-column: span 2;
   grid-row: span 2;
@@ -377,11 +413,22 @@ h3 { font-size: 1.4rem; }
   padding: clamp(22px, 3.5vw, 32px);
   display: flex;
   flex-direction: column;
+  transition: transform .3s var(--ease), border-color .25s ease, box-shadow .3s ease;
 }
-.card-quran h3 { color: #fff; font-size: 1.7rem; }
+.card-quran h3 { color: #fff; font-size: 1.7rem; transition: color .25s ease; }
+.card-quran:hover h3 { color: var(--gold-300); }
 .card-quran p { color: rgba(251, 248, 241, .88); font-size: 1rem; max-width: 40ch; }
 .card-quran .card-ico { background: rgba(230, 200, 119, .16); color: var(--gold-300); }
-.card-quran:hover { border-color: var(--gold-500); }
+.card-quran:hover {
+  border-color: var(--gold-500);
+  box-shadow: 0 16px 36px rgba(8, 41, 31, .3), 0 0 0 1px rgba(230, 200, 119, .3);
+  transform: translateY(-5px);
+}
+.card-quran:hover .card-ico {
+  background: rgba(230, 200, 119, .28);
+  color: #fff;
+  transform: rotate(6deg) scale(1.14);
+}
 .card-quran .ayah {
   margin-top: auto;
   padding-top: 24px;
@@ -391,9 +438,18 @@ h3 { font-size: 1.4rem; }
   color: var(--gold-300);
   max-width: none;
   text-align: right;
+  transition: letter-spacing .6s var(--ease), color .3s ease, text-shadow .3s ease;
+}
+.card-quran:hover .ayah {
+  letter-spacing: .025em;
+  color: #f7e6b5;
+  text-shadow: 0 0 18px rgba(230, 200, 119, .4);
 }
 
 .card-masjid { grid-column: span 2; }
+.card-masjid:hover .card-ico {
+  transform: translateY(-3px) scale(1.14);
+}
 
 .card-wide {
   grid-column: 1 / -1;
@@ -403,9 +459,20 @@ h3 { font-size: 1.4rem; }
   border-radius: 16px;
   background: #fbf3dc;
   padding: 20px 24px;
+  transition: transform .3s var(--ease), border-color .25s ease, box-shadow .3s ease;
+}
+.card-wide:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold-500);
+  box-shadow: 0 12px 28px rgba(138, 106, 31, .14);
+}
+.card-wide:hover .card-ico {
+  transform: rotate(-10deg) scale(1.14);
+  background: #f2dc9f;
 }
 .card-wide .card-wide-body { flex: 1; }
-.card-wide h3 { margin-top: 0; font-size: 1.2rem; }
+.card-wide h3 { margin-top: 0; font-size: 1.2rem; transition: color .25s ease; }
+.card-wide:hover h3 { color: var(--gold-700); }
 .card-wide p { max-width: 70ch; margin-top: 4px; font-size: 0.92rem; }
 
 @media (max-width: 980px) {
@@ -674,7 +741,19 @@ h3 { font-size: 1.4rem; }
   .reveal-ready .reveal.pop.is-in { animation-name: reveal-pop; }
   @keyframes reveal-up   { from { opacity: 0; transform: translateY(28px); } }
   @keyframes reveal-left { from { opacity: 0; transform: translateX(-28px); } }
-  @keyframes reveal-pop  { from { opacity: 0; transform: scale(.92) translateY(18px); } }
+  @keyframes reveal-pop {
+    0% {
+      opacity: 0;
+      transform: translateY(22px) scale(.94);
+    }
+    60% {
+      transform: translateY(-3px) scale(1.015);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
 
   .medallion img { animation: float 7s ease-in-out infinite; }
   @keyframes float { 50% { transform: translateY(-10px); } }
@@ -696,14 +775,6 @@ h3 { font-size: 1.4rem; }
     70%  { box-shadow: 0 8px 22px rgba(0, 0, 0, .22), 0 0 0 18px rgba(230, 200, 119, 0); }
     100% { box-shadow: 0 8px 22px rgba(0, 0, 0, .22), 0 0 0 0 rgba(230, 200, 119, 0); }
   }
-
-  /* Cards, phones and contact links respond to hover and touch */
-  .card { transition: transform .3s var(--ease), border-color .2s ease, box-shadow .3s ease; }
-  .card:hover { transform: translateY(-5px); }
-  .card-ico { transition: transform .4s var(--ease), background-color .3s ease; }
-  .card:hover .card-ico { transform: rotate(-8deg) scale(1.12); }
-  .card-quran .ayah { transition: letter-spacing .6s var(--ease), color .3s ease; }
-  .card-quran:hover .ayah { letter-spacing: .03em; color: #f3dc9b; }
 
   .phone { transition: transform .4s var(--ease); }
   .phone-screen { transition: box-shadow .4s ease; }
